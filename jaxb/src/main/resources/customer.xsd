@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/customer"
+        xmlns="http://www.example.org/customer"
+        elementFormDefault="qualified">
+
+    <xs:element name="customer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="billing-address" type="address-type"/>
+                <xs:element name="shipping-address" type="address-type"/>
+                <xs:element name="nillableString" type="xs:string" nillable="true" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="address-type">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="street" type="xs:string"/>
+                <xs:element name="road" type="xs:string"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+</xs:schema>
