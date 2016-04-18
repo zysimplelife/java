@@ -1,30 +1,28 @@
 package charlie.zha.jaxbutils;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
 
 /**
  * Created by ezhayog on 4/16/2016.
  */
-public class NillableString {
-    public static final String XSI = "http://www.w3.org/2001/XMLSchema-instance";
 
-    @XmlAttribute(namespace = XSI)
-    protected String nil;
-    protected String value;
+public class NillableString  extends JAXBElement{
 
-    public String getNil() {
-        return nil;
+    public NillableString(QName name, Class declaredType, Class scope, Object value) {
+        super(name, declaredType, scope, value);
     }
 
-    public void setNil(String nil) {
-        this.nil = nil;
+    public NillableString(QName name, Class declaredType, Object value) {
+        super(name, declaredType, value);
     }
 
-    public String getValue() {
-        return value;
+    public NillableString(){
+        super(new QName("test"),String.class,null);
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public NillableString(String tagName){
+        super(new QName(tagName),String.class,null);
     }
+
 }
